@@ -17,7 +17,7 @@ function App() {
     body.style.backgroundColor = checkTheme
       ? lightMode.backgroundColor
       : darkMode.backgroundColor;
-  }, [checkTheme]);
+  }, [checkTheme, darkMode.backgroundColor, lightMode.backgroundColor]);
 
   return (
     <Router>
