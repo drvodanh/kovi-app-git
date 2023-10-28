@@ -1,0 +1,48 @@
+.wrapper {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid rgba(22, 24, 35, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+.inner {
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 8px;
+}
+.wrapper-container {
+    height: 100%;
+}
+
+.contain {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+// input
+
+.contain-search {
+    height: 100%;
+    position: relative;
+}
+
+
+// more
+
+.more {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    .more-icon{
+        cursor: pointer;
+    }
+}
+.menu {
+    z-index: 99;
+}

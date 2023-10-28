@@ -1,0 +1,64 @@
+.wrapper {
+    width: 60px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .theme-check {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    background-color: green; /* Màu nền mặc định là xanh lá */
+    transition: transform background-color 0.3s; /* Thêm chuyển động màu nền */
+    &.checked {
+          background-color: yellow; /* Màu nền khi được check là vàng */
+        &::after {
+            transform: translateX(0%);
+        }
+    }
+    &::after {
+    content: "";
+        display: block;
+        transform: translateX(100%);
+        height: 100%;
+        width: 30px;
+        border: 1px solid #000;
+        border-radius: 50%;
+        background: #fff;
+    }
+    & input,
+    .icon {
+      position: absolute;
+    }
+    & input {
+      left: -30px;
+      display: none;
+    }
+
+}
+
+.icon {
+    display: none;
+    top: 50%;
+    transform: translate(0, -50%);
+    opacity: 0;
+    color: #000;
+    z-index: 10;
+    &.check {
+        opacity: 1;
+        display: block;
+        transition: opacity 0.6s; /* Thêm chuyển động opacity */
+    }
+
+}
+
+.icon.left {
+    left: 4px;
+}
+
+.icon.right {
+    right: 4px;
+}

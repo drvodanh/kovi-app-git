@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper-container {
+    max-width: var(--main-width);
+    width: 100%;
+    min-height: 1000px;
+    padding-top: calc(var(--default-hight-header) + 10px);
+}
+.container {
+}
+
+.content {
+}
+.content-inner {
+    position: relative;
+    width: 100%;
+}
+
+.dark-mode {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

@@ -1,0 +1,62 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.result {
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    &:hover {
+        background-color: rgba(22, 24, 35, .07) !important;
+    }
+    & + .result::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(22, 24, 35, .2);
+    }
+}
+.no-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+.result-word {
+    padding-right: 12px;
+    padding-left: 8px;
+    & span {
+        font-weight: 500;
+    }
+}
+.result-mean {
+    flex: 1;
+    /* Đảm bảo phần tử hiển thị là block (nếu nó chưa phải) */
+    display: block;
+
+    /* Không ngắt dòng */
+    white-space: nowrap;
+
+    /* Hiện dấu "..." khi vượt quá kích thước */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 42px;
+}
+.icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.no-result {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
