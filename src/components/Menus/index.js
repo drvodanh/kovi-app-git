@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Tippy from "@tippyjs/react/headless";
 
-import { useStoreMenus } from "~/store";
+import { useStoreMenus, useStoreTheme } from "~/store";
 
 import { Wrapper as PopperWrapper } from "../Popper";
 import Header from "./Header";
@@ -16,8 +16,10 @@ const defaultFn = () => {};
 
 function Menus({ className, children, onChange = defaultFn }) {
   const [state] = useStoreMenus();
-
   const { menuItems } = state;
+
+  const [_state] = useStoreTheme();
+  const { checkTheme, darkMode, lightMode } = _state;
 
   const [menu, setMenu] = useState([{ data: menuItems }]);
   const [titleChil, setChilTitle] = useState("");
@@ -36,6 +38,22 @@ function Menus({ className, children, onChange = defaultFn }) {
   //     }
   //   };
 
+  //   const tippyRef = useRef();
+  //   const hideTippy = () => {
+  //     tippyRef.current.hide();
+  //     handleMouseLeave();
+  //   };
+
+  const handleMouseEnter = (e) => {
+    e.currentTarget.style.backgroundColor = checkTheme
+      ? lightMode.hoverColor
+      : darkMode.hoverColor;
+  };
+
+  const handleMouseLeave = (e) => {
+    e.currentTarget.style.backgroundColor = "";
+  };
+
   const renderItems = () => {
     return currentMenu.data.map((item, index) => {
       const isParent = !!item.children;
@@ -43,12 +61,14 @@ function Menus({ className, children, onChange = defaultFn }) {
         <MenuItems
           key={index}
           data={item}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           onClick={() => {
             if (isParent) {
               setMenu((pre) => [...pre, item.children]);
               setChilTitle(item.children.title);
             } else {
-              //   onChange(item);
+              //   hideTippy();
             }
           }}
         />
@@ -58,12 +78,13 @@ function Menus({ className, children, onChange = defaultFn }) {
 
   return (
     <Tippy
-      hideOnClick="toggle"
       //   visible
-      delay={[0, 500]}
+      //   onShow={(e) => (tippyRef.current = e)}
+      hideOnClick="toggle"
+      trigger="click"
       interactive
+      //   delay={[0, 500]}
       placement="bottom-end"
-      offset={[0, -40]}
       onHidden={() => setMenu((pre) => pre.slice(0, 1))}
       render={(attrs) => (
         <div className={classes} tabIndex="-1" {...attrs}>

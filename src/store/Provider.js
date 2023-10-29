@@ -1,8 +1,9 @@
 import { useReducer } from "react";
-import Context, { ContextTheme, ContextMenus } from "./Context";
+import Context, { ContextTheme, ContextMenus, ContextResults } from "./Context";
 import reducer, { intState } from "./reducer";
 import reducerTheme, { intStateTheme } from "./StoreTheme/reducer";
 import reducerMenus, { intStateMenus } from "./StoreMenus/reducer";
+import reducerResults, { intStateResults } from "./StoreResults/reducer";
 
 function Provider({ children }) {
   const [state, dispatch] = useReducer(reducer, intState);
@@ -27,6 +28,5 @@ function ProviderMenus({ children }) {
   );
 }
 
-export { ProviderTheme };
-export { ProviderMenus };
+export { ProviderTheme, ProviderMenus };
 export default Provider;

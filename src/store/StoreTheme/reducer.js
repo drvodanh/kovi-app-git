@@ -11,12 +11,14 @@ const intStateTheme = {
     backgroundColorS: "#3b6793",
     color: "#fff",
     borderColor: "#fff",
+    hoverColor: "#2e8b57",
   },
   lightMode: {
     backgroundColor: "#fff",
     backgroundColorS: "#e3e3e4",
     color: "#000",
     borderColor: "rgba(22, 24, 35, .2)",
+    hoverColor: "#ccc",
   },
 };
 function reducerTheme(state, action) {

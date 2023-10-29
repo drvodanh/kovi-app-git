@@ -4,14 +4,8 @@ import { faGlobe, faComments } from "@fortawesome/free-solid-svg-icons";
 const intStateMenus = {
   menuItems: [
     {
-      icon: <FontAwesomeIcon icon={faComments} />,
-      title: "Menu",
-      to: "",
-    },
-    {
       icon: <FontAwesomeIcon icon={faGlobe} />,
       title: "Korean",
-      separate: true,
       children: {
         title: "Language",
         data: [
