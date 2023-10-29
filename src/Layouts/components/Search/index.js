@@ -28,7 +28,7 @@ function Search() {
   const inputRef = useRef();
   const tippyRef = useRef(); // Add a ref for Tippy
 
-  const debounce = useDebounce(inputValue, 10);
+  const debounce = useDebounce(inputValue, 100);
 
   useEffect(() => {
     if (!debounce.trim()) {
